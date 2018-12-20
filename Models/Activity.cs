@@ -22,6 +22,9 @@ namespace DojoActivity.Models
         public DateTime Time {get;set;}
 
             [Required]
+        public string Location {get;set;}
+
+            [Required]
             [RegularExpression(@"^(?:\d|[,\.])+$", ErrorMessage = "Must choose a positive number.")]
         public int Duration {get;set;}
 

@@ -1,18 +1,42 @@
+<style>
+    *{
+        margin: 0;
+        padding:0;
+    }
+    
+    html{
+        background-color: grey;
+    }
 
-    <div style="float:left">
-        <partial  name="LoginForm"></partial>
-    </div>
+    .container {
+        background-image:url('/images/nov2.jpg');
+        height: 100vh;
+        width:100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        
 
-    <div style="float:right">
-        <partial  name="RegistrationForm"></partial>
-    </div>
+    }
+</style>
 
+<body>
     <center>
-        <h3>Website created by Rabin Gora</h3>
-        @{
-            foreach (var i in @ViewBag.AllUsers)
-            {
-                <p>@i.FirstName | @i.Email | <a href="/delete/@i.UserId"> Delete</a></p>
-            }
-        }
+    <div class="container">
+        <br>
+        <h3 style="color:yellow">Welcome to the Event Planner!</h3>
+
+        <div >
+            <partial name="LoginForm"></partial>
+        </div>
+        <p>Not Registered yet? Please register below.</p>
+        <br>
+        <div>
+            <partial  name="RegistrationForm"></partial>
+        </div>
+        <br>
+        <h6 style="color:purple">Website created by Rabin Gora</h6>
+        
+    </div>
     </center>
+</body>

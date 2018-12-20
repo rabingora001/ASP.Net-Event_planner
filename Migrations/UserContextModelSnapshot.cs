@@ -33,6 +33,9 @@ namespace DojoActivity.Migrations
 
                     b.Property<string>("DurationForm");
 
+                    b.Property<string>("Location")
+                        .IsRequired();
+
                     b.Property<DateTime>("Time");
 
                     b.Property<string>("Title")

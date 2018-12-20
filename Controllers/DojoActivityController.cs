@@ -210,7 +210,11 @@ namespace DojoActivity.Controllers
             int? UserId = HttpContext.Session.GetInt32("UserId");
             ViewBag.userid = HttpContext.Session.GetInt32("UserId");
 
-            Activity showOne = dbContext.ActivityTable.Include(w => w.participant).ThenInclude(w => w.User).SingleOrDefault(h =>h.ActivityId == showId);
+            Activity showOne = dbContext.ActivityTable.Include(c => c.Creator)
+                                .Include(w => w.participant)
+                                .ThenInclude(w => w.User)
+                                .SingleOrDefault(h =>h.ActivityId == showId);
+            
             ViewBag.ShowOne = showOne;
 
             return View();

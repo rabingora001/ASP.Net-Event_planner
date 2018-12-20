@@ -1,9 +1,16 @@
 @using DojoActivity.Models
 @model LoginUser
 
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+</style>
+
 <div>
     <form asp-action="LoginProcess" asp-controller="DojoActivity" method="post">
-        <h3>Login</h3>
+        <h3 style="color:#ff0066">Login</h3>
 
         <span asp-validation-for="LoginEmail" style="color:red"></span><br>
         <p>Email:<br><input type="text" asp-for="LoginEmail"></p>

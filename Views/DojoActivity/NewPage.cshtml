@@ -1,35 +1,62 @@
 @using DojoActivity.Models
 @model Activity
 
-<h2>Dojo Activity Center</h2> <span style="color:red">Welcome @ViewBag.firstname @ViewBag.lastname! </span><br><br>
-<a href="/home">Home</a> | <a href="/logout">Log off</a>
-<hr>
-<div>
-    <form asp-action="CreateMethod" asp-controller="DojoActivity" method="post">
+<style>
+    *{ 
+        margin: 0;
+        padding:0;
+    }
+    .container {
+        box-sizing: border-box;
+        background-image:url('/images/maya2.jpg');
+        height: 100vh;
+        width:100%;
+        background-size:cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+</style>
 
-        <span asp-validation-for="Title" style="color:red"></span><br>
-        <P>Title: <input type="text"asp-for="Title" ></P>
+<body>
+    <center>
+    <div class="container">  
+        <br>
+        <a href="/home">Home</a> | <a href="/logout">Log off</a> 
+        <br><br>
+        <h2>Add your Event <span style="color:red"> @ViewBag.firstname @ViewBag.lastname! </span></h2>
+        <hr>
+        <div>
+            <form asp-action="CreateMethod" asp-controller="DojoActivity" method="post">
 
-        <span asp-validation-for="Date" style="color:red"></span><br>
-        <P>Date: <input type="Date" asp-for="Date"></P>
+                <span asp-validation-for="Title" style="color:red"></span><br>
+                <P>Title: <input type="text"asp-for="Title" ></P>
 
-        <span asp-validation-for="Time" style="color:red"></span><br>
-        <P>Time: <input type="Time" asp-for="Time"></P>
+                <span asp-validation-for="Date" style="color:red"></span><br>
+                <P>Date: <input type="Date" asp-for="Date"></P>
 
-        <span asp-validation-for="Duration" style="color:red"></span><br>
-        <P>
-            Duration: <input type="number" asp-for="Duration"> 
-            
-            <select asp-for="DurationForm">
-                <option value="Days">Days</option>
-                <option value="Hours">Hours</option>
-                <option value="Minutes">Minutes</option>
-            </select>
-        </P>
+                <span asp-validation-for="Time" style="color:red"></span><br>
+                <P>Time: <input type="Time" asp-for="Time"></P>
 
-        <span asp-validation-for="Description" style="color:red"></span><br>
-        <P>Description: <input type="text" asp-for="Description"></P>
+                <span asp-validation-for="Location" style="color:red"></span><br>
+                <P>Address: <input type="text" asp-for="Location"></P>
 
-        <button type="submit">Create Activity</button>
-    </form>
-</div>
+                <span asp-validation-for="Duration" style="color:red"></span><br>
+                <P>
+                    Duration: <input type="number" asp-for="Duration"> 
+                    
+                    <select asp-for="DurationForm">
+                        <option value="Days">Days</option>
+                        <option value="Hours">Hours</option>
+                        <option value="Minutes">Minutes</option>
+                    </select>
+                </P>
+
+                <span asp-validation-for="Description" style="color:red"></span><br>
+                <P>Description: <textarea type="text" asp-for="Description"></textarea></P>
+                <br><br>
+                <button type="submit">Create Event</button>
+            </form>
+        </div>
+    </div>
+    </center>
+</body>
